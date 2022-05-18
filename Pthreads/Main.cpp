@@ -25,8 +25,8 @@ void defaultSum() {
     unsigned long long sum = getSumOfAllChilds(tree);
     endTime = omp_get_wtime();
 
-    cout << "Âðåìÿ âûïîëíåíèÿ:\t" << endTime - startTime << endl;
-    cout << "Ñóììà äî÷åðíèõ óçëîâ:\t" << sum << endl << endl;
+    cout << "Время выполнения:\t" << endTime - startTime << endl;
+    cout << "Сумма дочерних узлов:\t" << sum << endl << endl;
 }
 
 void pthreadSum() {
@@ -35,7 +35,7 @@ void pthreadSum() {
 
     int threads = omp_get_num_procs();
     unsigned long long elementCount = getCountOfFile();
-    cout << "Êîëè÷åñòâî ïîòîêîâ:\t" << threads << "\nÊîëè÷åñòâî ýëåìåíòîâ:\t" << elementCount << endl;
+    cout << "Количество потоков:\t" << threads << "\nКоличество элментов:\t" << elementCount << endl;
 
     pthreadArg arg;
     arg.tree = tree;
@@ -45,8 +45,8 @@ void pthreadSum() {
     getSumOfAllChilds_Pthread((void*)&arg);
     endTime = omp_get_wtime();
 
-    cout << "Âðåìÿ âûïîëíåíèÿ:\t" << endTime - startTime << endl;
-    cout << "Ñóììà äî÷åðíèõ óçëîâ:\t" << arg.tree->sum << endl << endl;
+    cout << "Время выполнения:\t" << endTime - startTime << endl;
+    cout << "Сумма дочерних узлов:\t" << arg.tree->sum << endl << endl;
 }
 
 void openMpSum() {
@@ -55,7 +55,7 @@ void openMpSum() {
 
     int threads = omp_get_num_procs();
     unsigned long long elementCount = getCountOfFile();
-    cout << "Êîëè÷åñòâî ïîòîêîâ:\t" << threads << "\nÊîëè÷åñòâî ýëåìåíòîâ:\t" << elementCount << endl;
+    cout << "Количество потоков:\t" << threads << "\nКоличество элементов:\t" << elementCount << endl;
 
     omp_set_nested(1);
     omp_set_max_active_levels((log2(20)));
@@ -64,8 +64,8 @@ void openMpSum() {
     unsigned long long sum = getSumOfAllChilds_OpenMP(tree);
     endTime = omp_get_wtime();
 
-    cout << "Âðåìÿ âûïîëíåíèÿ:\t" << endTime - startTime << endl;
-    cout << "Ñóììà äî÷åðíèõ óçëîâ:\t" << sum << endl << endl;
+    cout << "Время выполнения:\t" << endTime - startTime << endl;
+    cout << "Сумма дочерних узлов:\t" << sum << endl << endl;
 }
 
 int main() {
