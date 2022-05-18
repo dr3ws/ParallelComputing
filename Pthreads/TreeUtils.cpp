@@ -219,8 +219,8 @@ unsigned long long getSumOfAllChilds_OpenMP(tnode* tree) {
         unsigned long long leftSum = 0;
         unsigned long long rightSum = 0;
 
-        //if (omp_get_active_level() >= omp_get_max_active_levels())
-        //    return getSumOfAllChilds(tree);
+        if (omp_get_active_level() >= omp_get_max_active_levels())
+            return getSumOfAllChilds(tree);
 
         #pragma omp parallel num_threads(2)
         {
