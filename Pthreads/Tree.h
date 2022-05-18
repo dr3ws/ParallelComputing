@@ -5,14 +5,14 @@
 
 using namespace std;
 
-// Структура бинарного дерева
+// РЎС‚СЂСѓРєС‚СѓСЂР° Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР°
 struct tnode
 {
-	unsigned long long value = 0;	// числовое значение
-	unsigned long long sum = 0;		// сумма значений дочерних узлов 
-	struct tnode* left = NULL;		// левый потомок
-	struct tnode* right = NULL;		// правый потомок
+	unsigned long long value = 0;		// С‡РёСЃР»РѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
+	unsigned long long sum = 0;		// СЃСѓРјРјР° Р·РЅР°С‡РµРЅРёР№ РґРѕС‡РµСЂРЅРёС… СѓР·Р»РѕРІ
+	struct tnode* left = NULL;		// Р»РµРІС‹Р№ РїРѕС‚РѕРјРѕРє
+	struct tnode* right = NULL;		// РїСЂР°РІС‹Р№ РїРѕС‚РѕРјРѕРє
 };
 
-// Добавление узла
+// Р”РѕР±Р°РІР»РµРЅРёРµ СѓР·Р»Р°
 tnode* addNode(unsigned long long v, tnode* tree);
