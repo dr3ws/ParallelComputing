@@ -58,7 +58,7 @@ void openMpSum() {
     cout << "Количество потоков:\t" << threads << "\nКоличество элементов:\t" << elementCount << endl;
 
     omp_set_nested(1);
-    //omp_set_max_active_levels((log2(20)));
+    omp_set_max_active_levels((log2(20)));
 
     startTime = omp_get_wtime();
     unsigned long long sum = getSumOfAllChilds_OpenMP(tree);
