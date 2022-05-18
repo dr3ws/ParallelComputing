@@ -10,7 +10,7 @@
 
 using namespace std;
 
-// временные засечки
+// ГўГ°ГҐГ¬ГҐГ­Г­Г»ГҐ Г§Г Г±ГҐГ·ГЄГЁ
 double startTime, endTime;
 
 int log2(int n) {
@@ -25,8 +25,8 @@ void defaultSum() {
     unsigned long long sum = getSumOfAllChilds(tree);
     endTime = omp_get_wtime();
 
-    cout << "Время выполнения:\t" << endTime - startTime << endl;
-    cout << "Сумма дочерних узлов:\t" << sum << endl << endl;
+    cout << "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї:\t" << endTime - startTime << endl;
+    cout << "Г‘ГіГ¬Г¬Г  Г¤Г®Г·ГҐГ°Г­ГЁГµ ГіГ§Г«Г®Гў:\t" << sum << endl << endl;
 }
 
 void pthreadSum() {
@@ -35,7 +35,7 @@ void pthreadSum() {
 
     int threads = omp_get_num_procs();
     unsigned long long elementCount = getCountOfFile();
-    cout << "Количество потоков:\t" << threads << "\nКоличество элементов:\t" << elementCount << endl;
+    cout << "ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ®ГІГ®ГЄГ®Гў:\t" << threads << "\nГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў:\t" << elementCount << endl;
 
     pthreadArg arg;
     arg.tree = tree;
@@ -45,8 +45,8 @@ void pthreadSum() {
     getSumOfAllChilds_Pthread((void*)&arg);
     endTime = omp_get_wtime();
 
-    cout << "Время выполнения:\t" << endTime - startTime << endl;
-    cout << "Сумма дочерних узлов:\t" << arg.tree->sum << endl << endl;
+    cout << "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї:\t" << endTime - startTime << endl;
+    cout << "Г‘ГіГ¬Г¬Г  Г¤Г®Г·ГҐГ°Г­ГЁГµ ГіГ§Г«Г®Гў:\t" << arg.tree->sum << endl << endl;
 }
 
 void openMpSum() {
@@ -55,17 +55,17 @@ void openMpSum() {
 
     int threads = omp_get_num_procs();
     unsigned long long elementCount = getCountOfFile();
-    cout << "Количество потоков:\t" << threads << "\nКоличество элементов:\t" << elementCount << endl;
+    cout << "ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ®ГІГ®ГЄГ®Гў:\t" << threads << "\nГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў:\t" << elementCount << endl;
 
     omp_set_nested(1);
-    //omp_set_max_active_levels((log2(20)));
+    omp_set_max_active_levels((log2(20)));
 
     startTime = omp_get_wtime();
     unsigned long long sum = getSumOfAllChilds_OpenMP(tree);
     endTime = omp_get_wtime();
 
-    cout << "Время выполнения:\t" << endTime - startTime << endl;
-    cout << "Сумма дочерних узлов:\t" << sum << endl << endl;
+    cout << "Г‚Г°ГҐГ¬Гї ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГї:\t" << endTime - startTime << endl;
+    cout << "Г‘ГіГ¬Г¬Г  Г¤Г®Г·ГҐГ°Г­ГЁГµ ГіГ§Г«Г®Гў:\t" << sum << endl << endl;
 }
 
 int main() {
