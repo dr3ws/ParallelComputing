@@ -2,10 +2,10 @@
 
 #include "Tree.h"
 
-// Константы
-#define MAX_VALUE 0xFFFFFFFF        // 4 294 967 295 (максимальное значения для генерации)
-//#define GENERATE_COUNT 100          // количество генераций случайного числа
-extern const char* EXTERNAL_FILE;   // внеший файл для экспорта и импорта дерева
+// РљРѕРЅСЃС‚Р°РЅС‚С‹
+#define MAX_VALUE 0xFFFFFFFF        // 4 294 967 295 РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РіРµРЅРµСЂР°С†РёРё
+//#define GENERATE_COUNT 100          // РєРѕР»РёС‡РµСЃС‚РІРѕ РіРµРЅРµСЂР°С†РёР№ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С‡РёСЃР»Р°
+extern const char* EXTERNAL_FILE;   // РІРЅРµС€РёР№ С„Р°Р№Р» РґР»СЏ СЌРєСЃРїРѕСЂС‚Р° Рё РёРјРїРѕСЂС‚Р° РґРµСЂРµРІР°
 
 #define SUCCESS 0
 #define ERROR_CREATE_THREAD -1
@@ -16,7 +16,7 @@ struct pthreadArg {
     int threadCount;
 };
 
-// Прототипы функций
+// РџСЂРѕС‚РѕС‚РёРїС‹ С„СѓРЅРєС†РёР№ 
 tnode* makeRandomTree();
 void exportTreeToFile(tnode* tree);
 tnode* importTreeFromFile();
