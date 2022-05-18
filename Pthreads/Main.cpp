@@ -10,7 +10,6 @@
 
 using namespace std;
 
-// âðåìåííûå çàñå÷êè
 double startTime, endTime;
 
 int log2(int n) {
